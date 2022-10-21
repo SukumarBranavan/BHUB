@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="description" content="Miminium Admin Template v.1">
+  <meta name="author" content="Isna Nur Azis">
+  <meta name="keyword" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BHUB</title>
+
+  <!-- start: Css -->
+  <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css">
+
+  <!-- plugins -->
+  <link rel="stylesheet" type="text/css" href="asset/css/plugins/font-awesome.min.css"/>
+  <link rel="stylesheet" type="text/css" href="asset/css/plugins/simple-line-icons.css"/>
+  <link rel="stylesheet" type="text/css" href="asset/css/plugins/animate.min.css"/>
+  <link rel="stylesheet" type="text/css" href="asset/css/plugins/icheck/skins/flat/aero.css"/>
+  <link href="asset/css/style.css" rel="stylesheet">
+  <!-- end: Css -->
+
+  <link rel="shortcut icon" href="bhub.png">
+ 
+    </head>
+
+    <body >
+
+<?php 
+$msg="";
+if(isset($_GET["id"])){
+	$idq=$_GET["id"];
+	if($idq==1){
+		$msg="Required Username And Password";
+       
+	}else if($idq==2){
+		
+        $msg="Invalid username or Password";
+	}
+	else{
+		$msg="";
+        
+	}
+ }
+ ?>
+
+      <div class="container image">
+
+
+
+        <form class="form-signin" method="POST" action="actions/login.php">
+          <div class="panel periodic-login">
+             
+              <div class="panel-body text-center">
+              <h1 align="center"><b>BHUB</b></h1>
+               
+                  <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                    <input type="email" class="form-text" required name="username" placeholder="Email">
+                    <span class="bar"></span>
+                
+                  </div>
+                  <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                    <input type="password" class="form-text" required name="password" placeholder="**********">
+                    <span class="bar"></span>
+                  
+                  </div>
+                  <span>
+                  <font color="#FF0000"><b><?php echo $msg; ?></b></font>
+                  </span>
+                 
+                 
+                  
+                  <input type="submit" class="btn btn-info col-md-12" value="SignIn" name="submit"/>
+              </div>
+                <div class="text-center" style="padding:5px;">
+                    <a href="resetPassword.php">Forgot Password </a>
+              
+                </div>
+          </div>
+        </form>
+
+      </div>
+
+      <!-- end: Content -->
+      <!-- start: Javascript -->
+      <script src="asset/js/jquery.min.js"></script>
+      <script src="asset/js/jquery.ui.min.js"></script>
+      <script src="asset/js/bootstrap.min.js"></script>
+
+      <script src="asset/js/plugins/moment.min.js"></script>
+      <script src="asset/js/plugins/icheck.min.js"></script>
+
+      <!-- custom -->
+      <script src="asset/js/main.js"></script>
+      <script type="text/javascript">
+       $(document).ready(function(){
+         $('input').iCheck({
+          checkboxClass: 'icheckbox_flat-aero',
+          radioClass: 'iradio_flat-aero'
+        });
+       });
+     </script>
+     <!-- end: Javascript -->
+   </body>
+   </html>
